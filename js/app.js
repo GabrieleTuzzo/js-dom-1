@@ -1,13 +1,16 @@
 const lampButton = document.querySelector('.toggle-lamp')
 
 lampButton.addEventListener('click', () => {
-    let currentLampPath = document.querySelector('img').src
-    
-    const isLampOn = currentLampPath.endsWith('yellow_lamp.png')
+    let currentLampPath = document.querySelector('img')
 
+    // Controlla lo stato della lampada vedendo come finisce src dell'immagine
+    const isLampOn = currentLampPath.src.endsWith('yellow_lamp.png')
+    
     if (isLampOn) {
-        document.querySelector('img').src = './img/white_lamp.png'
+        currentLampPath.src = './img/white_lamp.png'
+        lampButton.innerText = 'Accendi!'
     } else {
-        document.querySelector('img').src = './img/yellow_lamp.png'
+        currentLampPath.src = './img/yellow_lamp.png'
+        lampButton.innerText = 'Spegni!'
     }
 })
